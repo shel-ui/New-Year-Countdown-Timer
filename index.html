@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="box1">
+        <h1>Countdown Timer</h1>
+    </div>
+
+    <div id="box2"> 
+        <i>Created by Michelle</i>
+    </div>
+
+    <div id="box3">
+        <h2>Timer</h2>
+        <span>countdown timer until </span><p id="specDate"></p>
+        <p id="demo"></p>
+    </div>
+
+    <div id="box4">
+        <p>Music: christmas_audio.mp3</p>
+        <button id="playSound">Play a sound</button>
+        <button id="pauseSound">Pause</button>
+        <button id="stopSound">Stop</button>
+    </div>
+    <script>
+        //countdown timer until specified date and time
+        let countDownDate = new Date("Dec 31, 2024 24:00:00").getTime();
+        let x = setInterval(function() {
+            let now = new Date().getTime();
+            let distance = countDownDate - now;
+
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("demo").innerHTML = days + "d" + hours + "h " + minutes + "mins " + seconds + "sec\'s' ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+
+        //to display the date in box 3
+        let formattedDate = new Date(countDownDate).toLocaleString();
+        document.getElementById("specDate").textContent = formattedDate + ".";
+
+        //plays music
+        var audio = new Audio('christmas_audio.mp3');
+
+        const play = () => {
+            audio.play();
+        };
+        
+        const pause = () => {
+            audio.pause();
+        }
+
+        const stop = () => {
+            audio.pause();
+            audio.currentTime = 0;
+        };
+
+        var getButton1 = document.getElementById('playSound');
+        getButton1.addEventListener('click', play);
+
+        var getButton2 = document.getElementById('pauseSound');
+        getButton2.addEventListener('click', pause);
+
+        var getButton3 = document.getElementById('stopSound');
+        getButton3.addEventListener('click', stop);
+    </script>
+</body>
+</html>

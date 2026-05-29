@@ -1,0 +1,43 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    gap: 2em;
+}
+
+#box1 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#box2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: cadetblue;
+    width: 600px; 
+    padding: 20px;
+    border-radius: 8px;
+}
+#box3 {
+    background-color: rgb(184, 154, 133);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 600px; 
+    padding: 20px; 
+    border-radius: 8px;
+}
+#specDate {
+    display: inline;
+    margin: 0;
+}
+
+#demo {
+    font-size: 50px;
+}
